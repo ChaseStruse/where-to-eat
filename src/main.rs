@@ -9,10 +9,10 @@ struct Cli {
     category: String,
 }
 
-fn get_random_restaurant(matching_restaurants: Vec<&str>) -> &str {
+fn get_random_restaurant(matching_restaurants: Vec<&str>, category: String) -> String {
     let mut rng = rand::thread_rng();
     let rand_num: usize = rng.gen_range(0..matching_restaurants.len());
-    matching_restaurants[rand_num] 
+    matching_restaurants[rand_num].trim_end_matches(&category).to_string()
 }
 
 fn main() {
@@ -34,7 +34,7 @@ fn main() {
     }
 
     if matching_restaurants.len() != 0 {
-        println!("{}", get_random_restaurant(matching_restaurants)); 
+        println!("{}", get_random_restaurant(matching_restaurants, args.category)); 
     }
     else {
         println!("no matches found");
