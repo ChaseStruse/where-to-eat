@@ -34,7 +34,7 @@ fn main() {
     }
 
     if matching_restaurants.len() != 0 {
-        println!("{}", get_random_restaurant(matching_restaurants, args.category)); 
+        println!("The computer has decided: {}", get_random_restaurant(matching_restaurants, args.category)); 
     }
     else {
         println!("no matches found");
